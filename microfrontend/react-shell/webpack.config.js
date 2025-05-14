@@ -33,12 +33,18 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
     name: 'react_shell',
+    filename: 'remoteEntry.js',
     remotes: {
       app1: 'app1@http://localhost:3001/remoteEntry.js',
     },
+    exposes: {
+    './store': './src/store',
+  },
      shared: {
     react: { singleton: true, requiredVersion: false, eager: true },
     'react-dom': { singleton: true, requiredVersion: false, eager: true },
+    'react-redux': { singleton: true, eager: true },
+    '@reduxjs/toolkit': { singleton: true, eager: true },
   },
   }),
     new HtmlWebpackPlugin({
