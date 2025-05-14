@@ -4,6 +4,10 @@ const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
   entry: './src/index.js',
+  optimization: {
+    minimize: false,
+    runtimeChunk: false
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -27,24 +31,36 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-    }),
     new ModuleFederationPlugin({
     name: 'react_shell',
     remotes: {
-      angularApp: 'angularApp@http://localhost:4201/remoteEntry.js',
+      app1: 'app1@http://localhost:3001/remoteEntry.js',
     },
      shared: {
     react: { singleton: true, requiredVersion: false, eager: true },
     'react-dom': { singleton: true, requiredVersion: false, eager: true },
   },
-  })
+  }),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    })
   ],
   devServer: {
     static: './dist',
     port: 3000,
     hot: true,
+    historyApiFallback: true,
+  headers: {
+    'Access-Control-Allow-Origin': '*',
   },
+  },
+//   devServer: {
+//   static: path.join(__dirname, 'dist'),
+//   port: 3001,
+//   historyApiFallback: true,
+//   headers: {
+//     'Access-Control-Allow-Origin': '*',
+//   },
+// },
   mode: 'development',
 };
