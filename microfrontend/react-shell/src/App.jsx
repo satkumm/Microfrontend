@@ -27,14 +27,14 @@
 import React, { Suspense, lazy } from 'react';
 
 // 👇 Dynamically import from remote
-const App1Component = lazy(() => import('app1/App'));
+const RemoteApp = lazy(() => import('app1/App'));
 
 export default function App() {
   return (
     <div>
       <h1>React Host App</h1>
       <Suspense fallback={<div>Loading remote...</div>}>
-        <App1Component />
+        <RemoteApp user={{ name: 'sathish' }}/>
       </Suspense>
     </div>
   );
