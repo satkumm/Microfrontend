@@ -7,7 +7,8 @@ const App = (props) => {
   const dispatch = useDispatch();
   return (
     <div style={{ padding: '20px', border: '2px solid green' }}>
-      <h2>Name prop get from Host. Hello {props.user.name}</h2>
+      <h2>Child/Remote APP</h2>
+      <h3>Name prop get from Parent APP. {props.user.name}</h3>
       <h3>{user.name}</h3>
       <button onClick={() => dispatch(setUser('Updated from Remote'))}>
         Change User

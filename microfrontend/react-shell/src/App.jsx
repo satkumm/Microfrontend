@@ -34,10 +34,10 @@ export default function App() {
   const user = useSelector((state) => state.user);
 
   return (
-    <div>
-      <h1>React Host App {user?.name}</h1>
+    <div style={{ padding: '20px', border: '2px solid red' }}>
+      <h1>React Host/Parent App {user?.name}</h1>
       <Suspense fallback={<div>Loading remote...</div>}>
-        <RemoteApp user={{ name: 'sathish' }}/>
+        <RemoteApp user={{ name: 'Propdriling from Parent' }}/>
       </Suspense>
     </div>
   );
