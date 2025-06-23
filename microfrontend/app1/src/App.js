@@ -16,8 +16,8 @@ const App = (props) => {
     //     Change User
     //   </button>
     // </div>
-    // <ArchivalRequestForm />
-    <ArchivalList />
+    <ArchivalRequestForm />
+    // <ArchivalList />
   );
 };
 
