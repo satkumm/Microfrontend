@@ -1,12 +1,11 @@
 import axios from  'axios';
-import * as constants from '../../../../constants/env';
 
 function getHeaders() {
     return {};
 }
 
 function getUrl(relativeUrl) {
-    return (constants.BASE_URL + relativeUrl);
+    return (process.env.REACT_APP_API_URL + relativeUrl);
 }
 
 export function getAsync(url) {

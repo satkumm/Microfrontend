@@ -53,6 +53,7 @@ const ArchivalRequestForm = () => {
     <Box sx={{ width: '100%', mt: 2 }}>
       <Tabs value={tabValue} onChange={(e, newValue) => setTabValue(newValue)}>
         <Tab label="Archival Request" />
+        <Tab label="Archival History" />
       </Tabs>
 
       {tabValue === 0 && (
